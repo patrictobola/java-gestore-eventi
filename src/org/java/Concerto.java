@@ -40,26 +40,26 @@ public class Concerto extends Evento {
 
 //	CUSTOM 
 	public String getFormattedDate() {
-	    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	    LocalDate date = LocalDate.parse(super.getDate(), inputFormatter);
+		DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate date = LocalDate.parse(super.getDate(), inputFormatter);
 
-	    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	    LocalDateTime dateTime = LocalDateTime.of(date, getOra());
+		DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		LocalDateTime dateTime = LocalDateTime.of(date, getOra());
 
-	    return dateTime.format(outputFormatter);
+		return dateTime.format(outputFormatter);
 	}
-	
+
 	public String getFormattedPrice() {
-	    NumberFormat currencyFormatter = new DecimalFormat("##,##0.00€");
-	    return currencyFormatter.format(prezzo);
+		NumberFormat currencyFormatter = new DecimalFormat("##,##0.00€");
+		return currencyFormatter.format(prezzo);
 	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + "\n"
-				+ "Data e ora evento: " + getFormattedDate() + "\n"
-				+ "Il prezzo è di: " + getFormattedPrice();
-		
+		return "Data e ora --> " + getFormattedDate() + "\n" 
+				+ "Titolo evento --> " + super.getTitle() + "\n"
+				+ "Prezzo evento --> " + getFormattedPrice();
+
 	}
 }
