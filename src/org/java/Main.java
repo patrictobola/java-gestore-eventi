@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 //    	Richiesta dati all'utente
 		Scanner in = new Scanner(System.in);
 		System.out.println("Inserisci un nuovo evento.");
@@ -92,5 +92,10 @@ public class Main {
 		} catch (ParseException | IllegalArgumentException e) {
 			System.out.println("Errore durante la creazione dell'evento --> " + e.getMessage());
 		}
+		
+		
+		
+//		Concerto e1 = new Concerto("poland", "2024-12-20", 500, LocalTime.parse("19:30:00"), new BigDecimal("20.00"));
+//		System.out.println(e1);
 	}
 }
