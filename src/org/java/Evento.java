@@ -91,6 +91,11 @@ public class Evento {
 			throw new IllegalArgumentException("Impossibile cancellare un posto.");
 		}
 	}
+	public String getFormattedDate() throws ParseException {
+        SimpleDateFormat inputFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date eventDate = inputFormatter.parse(getDate());
+        return inputFormatter.format(eventDate);
+    }
 
 	@Override
 	public String toString() {

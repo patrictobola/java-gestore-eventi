@@ -1,6 +1,8 @@
 package org.java;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,11 +58,25 @@ public class ProgrammEventi {
 	            		+ "Titolo: " + evento.getTitle());
 	        }
 	    }
-	}
+	}	
+	
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
+	 public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(titolo).append("\n");
+
+        Collections.sort(eventi, (evento1, evento2) -> evento1.getDate().compareTo(evento2.getDate()));
+
+        for (Evento evento : eventi) {
+            try {
+				result.append(evento.getFormattedDate()).append(" - ").append(evento.getTitle()).append("\n");
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+
+        return result.toString();
+    }
 }

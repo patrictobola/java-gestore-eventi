@@ -9,10 +9,10 @@ public class Main {
 	public static void main(String[] args) throws ParseException {
 //    	Richiesta dati all'utente
 		Scanner in = new Scanner(System.in);
-        ProgrammEventi programma = new ProgrammEventi("Eventi fantastici");
-        
+		ProgrammEventi programma = new ProgrammEventi("Eventi fantastici");
+
 		while (true) {
-		System.out.println("Inserisci un nuovo evento o premi 0 per uscire.");
+			System.out.println("Inserisci un nuovo evento o premi 0 per uscire.");
 
 			try {
 
@@ -104,17 +104,27 @@ public class Main {
 				System.out.println("Errore durante la creazione dell'evento --> " + e.getMessage());
 			}
 		}
-		
-		Evento e1 = new Evento("evento 1 prova", "2024-08-01", 500);
+
+//		Eventi Hardcodati per evitare sbatti ogni volta
+		Evento e1 = new Evento("evento 1 prova", "2024-08-02", 500);
 		Evento e2 = new Evento("evento 2 prova", "2025-10-10", 500);
-		Evento e3 = new Evento("evento 3 prova", "2024-08-01", 500);
+		Evento e3 = new Evento("evento 3 prova", "2024-08-02", 500);
 		programma.addEvent(e3);
 		programma.addEvent(e2);
 		programma.addEvent(e1);
-		for (Evento evento : programma.getEventi()) {
-            System.out.println(evento);
-        }
-		programma.printSearchedEvents("2025-10-10");
+
+//		Output milestone 4 --> con metodo search
+		System.out.println("\n" + "Output da metodo search by date");
+		System.out.println("------------------------------");
+		programma.printSearchedEvents("2024-08-02");
+		
+		
+//		Output milestone 4 --> toString
+		System.out.println("\n" + "------------------------------");
+		System.out.println("Output da metodo toString");
+		System.out.println("------------------------------");
+		System.out.println(programma);
+		System.out.println("------------------------------");
 
 //		Concerto e1 = new Concerto("poland", "2024-12-20", 500, LocalTime.parse("19:30:00"), new BigDecimal("20.00"));
 //		System.out.println(e1);
