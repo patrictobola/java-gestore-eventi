@@ -11,7 +11,7 @@ public class ProgrammEventi {
 		setTitolo(titolo);
 		this.eventi = new ArrayList<>();
 	}
-
+//	GETTERS AND SETTERS 
 	public String getTitolo() {
 		return titolo;
 	}
@@ -23,9 +23,15 @@ public class ProgrammEventi {
 	public List<Evento> getEventi() {
 		return eventi;
 	}
-
-	public void setEventi(List<Evento> eventi) {
-		this.eventi = eventi;
+	
+//	CUSTOM
+	
+	public void addEvent(Evento e) {
+		eventi.add(e);
+	}
+	
+	public int countEvents() {
+		return eventi.size();
 	}
 	
 }
