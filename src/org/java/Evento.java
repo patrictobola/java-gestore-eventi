@@ -33,12 +33,12 @@ public class Evento {
 	}
 
 	public void setDate(String date) throws ParseException {
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//		Date newDate = sdf.parse(date);
-//
-//		if (newDate.before(new Date())) {
-//			throw new IllegalArgumentException("La data inserita non può essere precedente a quella odierna.");
-//		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date newDate = sdf.parse(date);
+
+		if (newDate.before(new Date())) {
+			throw new IllegalArgumentException("La data inserita non può essere precedente a quella odierna.");
+		}
 
 		this.date = date;
 	}
@@ -54,7 +54,7 @@ public class Evento {
 //	CUSTOM METHODS
 //	-----------------------------------
 //	SEATS
-	
+
 	public void reserveSeat() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date eventDate = sdf.parse(getDate());
@@ -64,11 +64,29 @@ public class Evento {
 			throw new IllegalArgumentException("Impossibile prenotare un posto.");
 		}
 	}
+	public void reserveSeat(int seats) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date eventDate = sdf.parse(getDate());
+		if (eventDate.after(new Date()) || reservedSeats < totSeats) {
+			this.reservedSeats += seats;
+		} else {
+			throw new IllegalArgumentException("Impossibile prenotare un posto.");
+		}
+	}
 	public void cancelSeat() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date eventDate = sdf.parse(getDate());
 		if (eventDate.after(new Date()) || reservedSeats > 0) {
 			this.reservedSeats -= 1;
+		} else {
+			throw new IllegalArgumentException("Impossibile cancellare un posto.");
+		}
+	}
+	public void cancelSeat(int seats) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date eventDate = sdf.parse(getDate());
+		if (eventDate.after(new Date()) || reservedSeats > 0) {
+			this.reservedSeats -= seats;
 		} else {
 			throw new IllegalArgumentException("Impossibile cancellare un posto.");
 		}
