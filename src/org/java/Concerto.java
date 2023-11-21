@@ -51,7 +51,7 @@ public class Concerto extends Evento {
 
 	public String getFormattedPrice() {
 		NumberFormat currencyFormatter = new DecimalFormat("##,##0.00€");
-		return currencyFormatter.format(prezzo);
+		return currencyFormatter.format(prezzo); 
 	}
 
 	@Override

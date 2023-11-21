@@ -95,7 +95,7 @@ public class Evento {
 	@Override
 	public String toString() {
 		return "Questo evento si intitola: " + getTitle() + "\n" + "Si terrà in data: " + getDate() + "\n"
-				+ "Numero posti totali: " + getTotSeats() + "\n" + "Numero posti prenotati: " + getReservedSeats();
+				+ "Numero posti totali: " + getTotSeats() + "\n" + "Numero posti prenotati: " + getReservedSeats() + "\n";
 	}
 
 }
